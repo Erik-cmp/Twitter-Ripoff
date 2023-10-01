@@ -33,11 +33,11 @@ const Navbar = () => {
   const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
 
   const theme = useTheme();
-  const neutralLight = theme.palette?.neutral?.light || 'defaultFallbackValue';
-  const dark = theme.palette?.neutral?.dark || 'defaultFallbackValue';
-  const background = theme.palette?.background?.default || 'defaultFallbackValue';
-  const primaryLight = theme.palette?.primary?.light || 'defaultFallbackValue';
-  const alt = theme.palette?.background?.alt || 'defaultFallbackValue';
+  const neutralLight = theme.palette.background.alt;
+  const dark = theme.palette.primary.dark;
+  const background = theme.palette.background.default;
+  const primaryLight = theme.palette.primary.light;
+  const alt = theme.palette.background.alt;
   
   const fullName = user ? `${user.firstName} ${user.lastName}` : "";
 
@@ -60,7 +60,7 @@ const Navbar = () => {
         </Typography>
         {isNonMobileScreens && (
           <FlexBetween
-            backgroundColor={neutralLight}
+            backgroundColor={background}
             borderRadius="9px"
             gap="3rem"
             padding="0.1rem 1.5rem"
@@ -89,7 +89,7 @@ const Navbar = () => {
             <Select
               value={fullName}
               sx={{
-                backgroundColor: neutralLight,
+                backgroundColor: background,
                 width: "150px",
                 borderRadius: "0.25rem",
                 p: "0.25rem 1rem",
@@ -98,7 +98,7 @@ const Navbar = () => {
                   width: "3rem",
                 },
                 "& .MuiSelect-select:focus": {
-                  backgroundColor: neutralLight,
+                  backgroundColor: background,
                 }
               }}
               input={<InputBase />}
